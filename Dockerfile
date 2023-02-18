@@ -15,7 +15,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN cd / && \
-    git clone -b master --depth 1 https://github.com/freeCodeCamp/devdocs.git && \
+    git clone -b main --depth 1 https://github.com/freeCodeCamp/devdocs.git && \
     cd /devdocs
 
 COPY Gemfile Gemfile.lock Rakefile /devdocs/
