@@ -2,7 +2,6 @@
 ARG ARG_RUBY_VERSION=2.7.7-alpine
 
 # First stage to build
-
 FROM ruby:${ARG_RUBY_VERSION} as builder
 
 WORKDIR /devdocs
