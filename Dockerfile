@@ -1,7 +1,6 @@
 # Set ruby version
 ARG ARG_RUBY_VERSION=2.7.7
 
-# First stage to build
 FROM ruby:${ARG_RUBY_VERSION}
 
 ENV LANG=C.UTF-8
