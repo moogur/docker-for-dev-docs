@@ -6,7 +6,7 @@ FROM ruby:${ARG_RUBY_VERSION} as builder
 
 WORKDIR /devdocs
 
-RUN apk --update git && \
+RUN apk add git && \
   cd / && \
   git clone -b main --depth 1 https://github.com/freeCodeCamp/devdocs.git
 
