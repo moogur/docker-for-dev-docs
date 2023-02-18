@@ -12,16 +12,13 @@ WORKDIR /devdocs
 RUN apt-get update && \
     apt-get -y install git nodejs libcurl4 && \
     gem install bundler && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN cd / && \
+    rm -rf /var/lib/apt/lists/* && \
+    cd / && \
     git clone -b main --depth 1 https://github.com/freeCodeCamp/devdocs.git && \
-    cd /devdocs
-
-RUN bundle install --system && \
-    rm -rf ~/.gem /root/.bundle/cache /usr/local/bundle/cache
-
-RUN thor docs:download --all && \
+    cd /devdocs && \
+    bundle install --system && \
+    rm -rf ~/.gem /root/.bundle/cache /usr/local/bundle/cache && \
+    thor docs:download --all && \
     thor assets:compile && \
     rm -rf /tmp
 
