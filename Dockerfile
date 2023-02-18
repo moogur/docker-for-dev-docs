@@ -4,6 +4,9 @@ ARG ARG_RUBY_VERSION=2.7.7-alpine
 # First stage to build
 FROM ruby:${ARG_RUBY_VERSION} as builder
 
+ENV LANG=C.UTF-8
+ENV ENABLE_SERVICE_WORKER=true
+
 WORKDIR /devdocs
 
 RUN apk add git && \
@@ -21,7 +24,6 @@ WORKDIR /devdocs
 COPY --from=builder /devdocs /devdocs
 
 RUN apk --update add nodejs build-base libstdc++ gzip git zlib-dev libcurl && \
-    export LANG= && \
     gem install bundler && \
     bundle install --system --without test && \
     thor docs:download --all && \
