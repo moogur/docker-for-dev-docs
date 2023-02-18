@@ -16,15 +16,15 @@ jobs:
       - name: "Global env"
         id: global_env
         run: |
-          echo "::set-output name=IMAGE_NAME::${GITHUB_REPOSITORY#*/}"
-          echo "::set-output name=DOCKERHUB_IMAGE_NAME::docker.pkg.github.com/${GITHUB_REPOSITORY}/${GITHUB_REPOSITORY#*/}"
+          echo "IMAGE_NAME=${GITHUB_REPOSITORY#*/}" >> $GITHUB_OUTPUT
+          echo "DOCKERHUB_IMAGE_NAME=docker.pkg.github.com/${GITHUB_REPOSITORY}/${GITHUB_REPOSITORY#*/}" >> $GITHUB_OUTPUT
 
       - name: "Version"
         id: version
         run: |
           tag=${GITHUB_REF/refs\/tags\//}
           version=${tag#v}
-          echo "::set-output name=VERSION::${version}"
+          echo "VERSION=${version}" >> $GITHUB_OUTPUT
 
       - name: "Build and tag image"
         run: |
