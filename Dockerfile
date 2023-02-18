@@ -13,7 +13,7 @@ RUN apk add git && \
 # Second stage to run
 FROM ruby:${ARG_RUBY_VERSION}
 
-ENV LANG="C.UTF-8"
+ENV LANG=C.UTF-8
 ENV ENABLE_SERVICE_WORKER=true
 
 WORKDIR /devdocs
@@ -21,6 +21,7 @@ WORKDIR /devdocs
 COPY --from=builder /devdocs /devdocs
 
 RUN apk --update add nodejs build-base libstdc++ gzip git zlib-dev libcurl && \
+    export LANG=C.UTF-8 && \
     gem install bundler && \
     bundle install --system --without test && \
     thor docs:download --all && \
