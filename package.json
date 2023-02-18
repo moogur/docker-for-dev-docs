@@ -1,0 +1,26 @@
+{
+  "name": "dev-docs",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "16"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moogur/docker-for-dev-docs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moogur/docker-for-dev-docs/issues"
+  },
+  "homepage": "https://github.com/moogur/docker-for-dev-docs#readme"
+}
