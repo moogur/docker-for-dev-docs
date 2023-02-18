@@ -18,8 +18,8 @@ RUN apt-get update && \
     cd /devdocs && \
     bundle install --system && \
     rm -rf ~/.gem /root/.bundle/cache /usr/local/bundle/cache && \
-    thor docs:download --all && \
-    thor assets:compile && \
+    # thor docs:download --all && \
+    # thor assets:compile && \
     rm -rf /tmp
 
 EXPOSE 9292
