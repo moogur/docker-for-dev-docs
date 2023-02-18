@@ -21,7 +21,7 @@ WORKDIR /devdocs
 COPY --from=builder /devdocs /devdocs
 
 RUN apk --update add nodejs build-base libstdc++ gzip git zlib-dev libcurl && \
-    export LANG=C.UTF-8 && \
+    export LANG= && \
     gem install bundler && \
     bundle install --system --without test && \
     thor docs:download --all && \
