@@ -18,12 +18,8 @@ RUN cd / && \
     git clone -b main --depth 1 https://github.com/freeCodeCamp/devdocs.git && \
     cd /devdocs
 
-COPY Gemfile Gemfile.lock Rakefile /devdocs/
-
 RUN bundle install --system && \
     rm -rf ~/.gem /root/.bundle/cache /usr/local/bundle/cache
-
-COPY . /devdocs
 
 RUN thor docs:download --all && \
     thor assets:compile && \
