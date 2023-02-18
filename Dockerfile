@@ -13,7 +13,7 @@ RUN apk add git && \
 # Second stage to run
 FROM ruby:${ARG_RUBY_VERSION}
 
-ENV LANG=C.UTF-8
+ENV LANG="C.UTF-8"
 ENV ENABLE_SERVICE_WORKER=true
 
 WORKDIR /devdocs
