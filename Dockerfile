@@ -1,5 +1,5 @@
 # Set ruby version
-ARG ARG_RUBY_VERSION=2.7.7
+ARG ARG_RUBY_VERSION=3.3.0
 
 FROM ruby:${ARG_RUBY_VERSION}
 
