@@ -13,7 +13,7 @@ RUN apt-get update && \
     gem install bundler && \
     rm -rf /var/lib/apt/lists/* && \
     cd / && \
-    git clone -b main --depth 1 https://github.com/freeCodeCamp/devdocs.git && \
+    git clone --depth=1 --single-branch -b main https://github.com/freeCodeCamp/devdocs.git && \
     cd /devdocs && \
     bundle install --system && \
     rm -rf ~/.gem /root/.bundle/cache /usr/local/bundle/cache && \
